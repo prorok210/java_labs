@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Animal Beans -->
+    <bean id="cat" class="com.example.lab4.model.Cat">
+        <property name="name" value="Whiskers"/>
+        <property name="age" value="3"/>
+        <property name="furColor" value="Orange"/>
+    </bean>
+    
+    <bean id="parrot" class="com.example.lab4.model.Parrot">
+        <property name="name" value="Polly"/>
+        <property name="age" value="5"/>
+        <property name="color" value="Blue"/>
+        <property name="canTalk" value="true"/>
+    </bean>
+    
+    <bean id="fish" class="com.example.lab4.model.Fish">
+        <property name="name" value="Bubbles"/>
+        <property name="age" value="2"/>
+        <property name="waterType" value="Saltwater"/>
+        <property name="species" value="Clownfish"/>
+    </bean>
+    
+    <!-- Service Beans -->
+    <bean id="catService" class="com.example.lab4.service.impl.CatServiceImpl">
+        <constructor-arg ref="cat"/>
+    </bean>
+    
+    <bean id="parrotService" class="com.example.lab4.service.impl.ParrotServiceImpl">
+        <constructor-arg ref="parrot"/>
+    </bean>
+    
+    <bean id="fishService" class="com.example.lab4.service.impl.FishServiceImpl">
+        <constructor-arg ref="fish"/>
+    </bean>
+    
+</beans>
