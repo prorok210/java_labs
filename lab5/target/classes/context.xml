@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<context>
+    <description>Лабораторная работа 5: Зависимости и внедрение зависимостей</description>
+    <details>
+        <author>Студент</author>
+        <date>2025-04-13</date>
+        <subject>Работа с Spring Framework</subject>
+    </details>
+    <injection-types>
+        <type id="xml">
+            <name>XML-конфигурация</name>
+            <description>Внедрение зависимостей с помощью XML-файла конфигурации</description>
+            <example>
+                <bean id="cat" class="com.example.lab5.model.Cat"/>
+                <bean id="xmlPetShop" class="com.example.lab5.model.PetShop">
+                    <property name="cat" ref="cat"/>
+                </bean>
+            </example>
+        </type>
+        <type id="java">
+            <name>Java-конфигурация</name>
+            <description>Внедрение зависимостей с помощью Java-конфигурации</description>
+            <example>
+                <code>
+                    @Bean
+                    public Fish fish() { return new Fish(); }
+                    
+                    @Bean
+                    public PetShop petShop() {
+                        PetShop shop = new PetShop();
+                        shop.setFish(fish());
+                        return shop;
+                    }
+                </code>
+            </example>
+        </type>
+        <type id="annotation">
+            <name>Аннотация @Autowired</name>
+            <description>Внедрение зависимостей с использованием аннотации @Autowired</description>
+            <example>
+                <code>
+                    @Autowired
+                    @Qualifier("parrot")
+                    private Parrot parrot;
+                </code>
+            </example>
+        </type>
+    </injection-types>
+    <tasks>
+        <task>Создать интерфейс Animal и его реализации</task>
+        <task>Сделать все классы "бинами" (JavaBeans)</task>
+        <task>Создать класс-композицию PetShop над объектами типа интерфейса</task>
+        <task>Реализовать внедрение зависимостей тремя способами</task>
+    </tasks>
+</context>
